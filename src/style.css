@@ -10,8 +10,9 @@
   font-style: normal;
 }
 
-#rotated {
+.rotated {
   transform: rotate(180deg);
+  display: flex; /* used to get rid of white space */
 }
 
 .suit-icon {
@@ -26,6 +27,55 @@
   height: 6em;
 }
 
-.row {
+.top-row,
+.bottom-row {
   height: 10em;
+  justify-content: center;
+}
+
+.center-row {
+  justify-content: center;
+}
+
+.top-line {
+  height: 4em;
+  justify-content: center;
+  background-color: green;
+  justify-content: left;
+  margin-left: 10%;
+}
+
+.div-cols {
+  width: 8em;
+  background-color: white;
+}
+
+#top-and-bottom-center {
+  width: 6em;
+  background-color: white;
+}
+
+#middle-center {
+  width: 12em;
+  background-color: white;
+  padding: 0;
+  text-align: center;
+}
+
+#top-right-corner {
+  border-top-right-radius: 1em;
+}
+
+#bottom-left-corner {
+  border-bottom-left-radius: 1em;
+}
+
+strong {
+  justify-self: center;
+  padding: 0%;
+}
+
+button {
+  color: white;
+  border-radius: 6px;
 }

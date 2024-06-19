@@ -13,36 +13,30 @@
     />
   </head>
   <body style="background-color: green;" ;>
-    <div class="bg-green row justify-content-center" style="height:0.5em"></div>
-    <div class="row justify-content-center">
-      <div class="bg-white suit-icon" style="width:8em;"></div>
-      <div class="bg-white" style="width:8em;"></div>
-      <div
-        class="bg-white"
-        style="width:8em; border-top-right-radius: 1em;"
-      ></div>
+    <div class="row top-line">
+      <button type="button" class="btn-primary col-2 m-2">
+        Shuffle
+      </button>
     </div>
-    <div class="row justify-content-center" style="height:10em;">
-      <div class="bg-white" style="width:6em;"></div>
-      <div
-        class="bg-white playwrite-gb-j-google-font"
-        style="width:12em; margin-top:-3em;"
-      >
+    <div class="row top-row">
+      <div class="div-cols suit-icon"></div>
+      <div class="div-cols" id="second-to-top"></div>
+      <div class="div-cols" id="top-right-corner"></div>
+    </div>
+    <div class="row center-row">
+      <div id="top-and-bottom-center"></div>
+      <div class="playwrite-gb-j-google-font" id="middle-center">
         <strong style="font-size:9em;"></strong>
       </div>
-      <div class="bg-white" style="width:6em;"></div>
+      <div id="top-and-bottom-center"></div>
     </div>
-    <div class="row justify-content-center" style="height:10em;">
-      <div
-        class="bg-white"
-        style="width:8em; border-bottom-left-radius: 1em;"
-      ></div>
-      <div class="bg-white" style="width:8em;"></div>
-      <div class="bg-white suit-icon" id="rotated"></div>
+    <div class="row bottom-row">
+      <div class="div-cols" id="bottom-left-corner"></div>
+      <div class="div-cols" id="second-from-bottom"></div>
+      <div class="div-cols suit-icon rotated"></div>
     </div>
   </body>
 </html>
 
 <!-- Use npm run start to open browser window -->
-<!-- values 10 and Q (and others?) overfill containers -->
 <!-- js code NOT selecting both card-suit classes, only the -->

@@ -2,17 +2,37 @@
 import "bootstrap";
 import "./style.css";
 
-// import "./assets/img/rigo-baby.jpg";
-// import "./assets/img/4geeks.ico";
-
 window.onload = function() {
   //write your code here\
-  const cardValue = document.querySelector("strong");
-  cardValue.innerHTML = chooseRandomItem(cardValues);
+  if (document.readyState === "complete") {
+    const cardValue = document.querySelector("strong");
+    cardValue.innerHTML = chooseRandomItem(cardValues);
 
-  const cardSuit = document.querySelector(".suit-icon");
-  cardSuit.innerHTML = chooseRandomItem(cardSuits);
+    const cardSuit = document.querySelector(".suit-icon");
+    cardSuit.innerHTML = chooseRandomItem(cardSuits);
+
+    // document.body.insertBefore(topCornerSuit, secondToTopDiv);
+    // secondToBottomDiv.insertAdjacentElement("afterend", bottomCornerSuit);
+
+    const button = document.querySelector("button");
+    button.addEventListener("click", refreshPage);
+  }
 };
+
+// const suit = chooseRandomItem(cardSuits);
+// const topCornerSuit = document.createElement("div");
+// topCornerSuit.className = "div-cols suit-icon";
+// const suitImgTaG = document.createTextNode(suit);
+// console.log(suitImgTaG);
+// topCornerSuit.appendChild(suitImgTaG);
+// const secondToTopDiv = document.querySelector("#second-to-top");
+// // document.body.insertBefore(topCornerSuit, secondToTopDiv);
+
+// const bottomCornerSuit = document.createElement("div");
+// bottomCornerSuit.className = "div-cols suit-icon rotated";
+// bottomCornerSuit.appendChild(suitImgTaG);
+// const secondToBottomDiv = document.querySelector("#second-from-bottom");
+// // secondToBottomDiv.insertAdjacentElement("afterend", bottomCornerSuit);
 
 const heartsImageTag =
   '<img src="../src/assets/img/heart.svg" alt="hearts suit icon" class="img-size"/>';
@@ -51,8 +71,6 @@ function chooseRandomItem(array) {
   return array[randomIndex];
 }
 
-// const cardValue = document.querySelector("strong");
-// cardValue.innerHTML = chooseRandomItem(cardValues);
-
-// const cardSuit = document.querySelector(".suit-icon");
-// cardSuit.innerHTML = chooseRandomItem(cardSuits);
+function refreshPage() {
+  window.location.reload();
+}
