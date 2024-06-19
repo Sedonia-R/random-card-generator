@@ -1,12 +1,31 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-body {
-  background-color: green;
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 400 */
+
+.playwrite-gb-j-google-font {
+  font-family: "Playwrite GB J", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
-div#card {
-  background: white;
-  height: 20px;
-  width: 10px;
-  justify-items: center;
+#rotated {
+  transform: rotate(180deg);
+}
+
+.suit-icon {
+  width: 8em;
+  border-top-left-radius: 1em;
+  padding-top: 2em;
+  padding-left: 1.5em;
+}
+
+.img-size {
+  width: 6em;
+  height: 6em;
+}
+
+.row {
+  height: 10em;
 }

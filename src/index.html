@@ -4,18 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sedonia's Random Card Generator</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
     />
   </head>
-  <body class="container-fluid" color="green">
-    <div class="row justify-content-lg-center bg-white p-3 m-3 w-60">
-      <div class="col-2 border-1">something</div>
-      <div class="col-2 border-1">something</div>
-      <div class="col-2 border-1">something</div>
+  <body style="background-color: green;" ;>
+    <div class="bg-green row justify-content-center" style="height:0.5em"></div>
+    <div class="row justify-content-center">
+      <div class="bg-white suit-icon" style="width:8em;"></div>
+      <div class="bg-white" style="width:8em;"></div>
+      <div
+        class="bg-white"
+        style="width:8em; border-top-right-radius: 1em;"
+      ></div>
+    </div>
+    <div class="row justify-content-center" style="height:10em;">
+      <div class="bg-white" style="width:6em;"></div>
+      <div
+        class="bg-white playwrite-gb-j-google-font"
+        style="width:12em; margin-top:-3em;"
+      >
+        <strong style="font-size:9em;"></strong>
+      </div>
+      <div class="bg-white" style="width:6em;"></div>
+    </div>
+    <div class="row justify-content-center" style="height:10em;">
+      <div
+        class="bg-white"
+        style="width:8em; border-bottom-left-radius: 1em;"
+      ></div>
+      <div class="bg-white" style="width:8em;"></div>
+      <div class="bg-white suit-icon" id="rotated"></div>
     </div>
   </body>
 </html>
+
+<!-- Use npm run start to open browser window -->
+<!-- values 10 and Q (and others?) overfill containers -->
+<!-- js code NOT selecting both card-suit classes, only the -->
