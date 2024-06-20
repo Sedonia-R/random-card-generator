@@ -1,38 +1,24 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
+// import { NoEmitOnErrorsPlugin } from "webpack";
 
 window.onload = function() {
-  //write your code here\
   if (document.readyState === "complete") {
     const cardValue = document.querySelector("strong");
     cardValue.innerHTML = chooseRandomItem(cardValues);
 
-    const cardSuit = document.querySelector(".suit-icon");
-    cardSuit.innerHTML = chooseRandomItem(cardSuits);
-
-    // document.body.insertBefore(topCornerSuit, secondToTopDiv);
-    // secondToBottomDiv.insertAdjacentElement("afterend", bottomCornerSuit);
+    const cardSuits = document.querySelectorAll(".suit-icon");
+    const suit = chooseRandomItem(suitTags);
+    for (let cardSuit of cardSuits) {
+      cardSuit.innerHTML = suit;
+    }
 
     const button = document.querySelector("button");
     button.addEventListener("click", refreshPage);
+    button.style.display = "block";
   }
 };
-
-// const suit = chooseRandomItem(cardSuits);
-// const topCornerSuit = document.createElement("div");
-// topCornerSuit.className = "div-cols suit-icon";
-// const suitImgTaG = document.createTextNode(suit);
-// console.log(suitImgTaG);
-// topCornerSuit.appendChild(suitImgTaG);
-// const secondToTopDiv = document.querySelector("#second-to-top");
-// // document.body.insertBefore(topCornerSuit, secondToTopDiv);
-
-// const bottomCornerSuit = document.createElement("div");
-// bottomCornerSuit.className = "div-cols suit-icon rotated";
-// bottomCornerSuit.appendChild(suitImgTaG);
-// const secondToBottomDiv = document.querySelector("#second-from-bottom");
-// // secondToBottomDiv.insertAdjacentElement("afterend", bottomCornerSuit);
 
 const heartsImageTag =
   '<img src="../src/assets/img/heart.svg" alt="hearts suit icon" class="img-size"/>';
@@ -43,7 +29,7 @@ const clubsImageTag =
 const diamondsImageTag =
   '<img src="../src/assets/img/diamond.svg" alt="diamonds suit icon" class="img-size">';
 
-const cardSuits = [
+const suitTags = [
   heartsImageTag,
   spadesImageTag,
   clubsImageTag,
