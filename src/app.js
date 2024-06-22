@@ -16,10 +16,10 @@ window.onload = function() {
 
     const card = document.querySelector(".card");
     const newTopRow = buildTopOrBottomRow("top");
-    // const newMiddleRow = buildMiddleRow();
+    const newMiddleRow = buildMiddleRow();
     const newBottomRow = buildTopOrBottomRow("bottom");
     card.appendChild(newTopRow);
-    // card.appendChild(newMiddleRow);
+    card.appendChild(newMiddleRow);
     card.appendChild(newBottomRow);
 
     // const button = document.querySelector("button");
@@ -65,7 +65,8 @@ function refreshPage() {
   window.location.reload();
 }
 
-// const card = document.querySelector(".card");
+const value = chooseRandomItem(cardValues);
+const suit = chooseRandomItem(suitTags);
 
 function buildTopOrBottomRow(sideOfCard) {
   const topOrBottomRow = document.createElement("div");
@@ -80,10 +81,10 @@ function buildTopOrBottomRow(sideOfCard) {
   const strong = document.createElement("strong");
   const image = document.createElement("img");
   image.setAttribute("class", "corner-img");
-  const cardValue = document.createTextNode(chooseRandomItem(cardValues));
+  const cardValue = document.createTextNode(value);
   strong.appendChild(cardValue);
   p.appendChild(strong);
-  const suit = chooseRandomItem(suitTags);
+  // const suit = chooseRandomItem(suitTags);
   image.src = suit;
   topOrBottomRow.appendChild(p);
   topOrBottomRow.appendChild(image);
@@ -95,10 +96,10 @@ function buildMiddleRow() {
   middleRow.setAttribute("class", "middle");
   const image = document.createElement("img");
   image.setAttribute("class", "center-img");
-  const suit = chooseRandomItem(suitTags);
+  // const suit = chooseRandomItem(suitTags);
   image.src = suit;
   middleRow.appendChild(image);
-  return buildMiddleRow;
+  return middleRow;
 }
 
 // var element = document.getElementById("myDIV");
