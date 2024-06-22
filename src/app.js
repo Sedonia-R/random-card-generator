@@ -1,30 +1,22 @@
 // /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-// import { NoEmitOnErrorsPlugin } from "webpack";
 
 window.onload = function() {
   if (document.readyState === "complete") {
-    // const cardValue = document.querySelector("strong");
-    // cardValue.innerHTML = chooseRandomItem(cardValues);
+    // const card = document.querySelector(".card");
+    // const newTopRow = buildTopOrBottomRow("top");
+    // const newMiddleRow = buildMiddleRow();
+    // const newBottomRow = buildTopOrBottomRow("bottom");
+    // card.appendChild(newTopRow);
+    // card.appendChild(newMiddleRow);
+    // card.appendChild(newBottomRow);
 
-    // const cardSuits = document.querySelectorAll(".suit-icon");
-    // const suit = chooseRandomItem(suitTags);
-    // for (let cardSuit of cardSuits) {
-    //   cardSuit.innerHTML = suit;
-    // }
+    const button = document.querySelector("button");
+    button.addEventListener("click", refreshPage);
+    button.style.display = "block";
 
-    const card = document.querySelector(".card");
-    const newTopRow = buildTopOrBottomRow("top");
-    const newMiddleRow = buildMiddleRow();
-    const newBottomRow = buildTopOrBottomRow("bottom");
-    card.appendChild(newTopRow);
-    card.appendChild(newMiddleRow);
-    card.appendChild(newBottomRow);
-
-    // const button = document.querySelector("button");
-    // button.addEventListener("click", refreshPage);
-    // button.style.display = "block";
+    constructEachRandomCard(allCardOptions);
   }
 };
 
@@ -56,19 +48,19 @@ const cardValues = [
   "A"
 ];
 
-function chooseRandomItem(array) {
+function chooseRandomIndex(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
+  return randomIndex;
 }
 
 function refreshPage() {
   window.location.reload();
 }
 
-const value = chooseRandomItem(cardValues);
-const suit = chooseRandomItem(suitTags);
+// const value = cardValues[chooseRandomIndex(cardValues)];
+// const suit = suitTags[chooseRandomIndex(suitTags)];
 
-function buildTopOrBottomRow(sideOfCard) {
+function buildTopOrBottomRow(sideOfCard, value, suit) {
   const topOrBottomRow = document.createElement("div");
 
   if (sideOfCard === "top") {
@@ -84,23 +76,50 @@ function buildTopOrBottomRow(sideOfCard) {
   const cardValue = document.createTextNode(value);
   strong.appendChild(cardValue);
   p.appendChild(strong);
-  // const suit = chooseRandomItem(suitTags);
   image.src = suit;
   topOrBottomRow.appendChild(p);
   topOrBottomRow.appendChild(image);
   return topOrBottomRow;
 }
 
-function buildMiddleRow() {
+function buildMiddleRow(suit) {
   const middleRow = document.createElement("div");
   middleRow.setAttribute("class", "middle");
   const image = document.createElement("img");
   image.setAttribute("class", "center-img");
-  // const suit = chooseRandomItem(suitTags);
   image.src = suit;
   middleRow.appendChild(image);
   return middleRow;
 }
 
-// var element = document.getElementById("myDIV");
-// element.classList.add("mystyle");
+const allCardOptions = [];
+for (let suitTag in suitTags) {
+  for (let cardValue in cardValues) {
+    allCardOptions.push([`${suitTags[suitTag]}`, `${cardValues[cardValue]}`]);
+  }
+}
+
+function selectSuitAndValueFromAllOptions(array) {
+  const randomIndex = chooseRandomIndex(array);
+  console.log(array.splice(randomIndex, 2));
+  return array.splice(randomIndex, 1);
+}
+
+function constructEachRandomCard(array) {
+  // for (let i = 0; i < array.length; i++) {
+  const suitAndValue = selectSuitAndValueFromAllOptions(array);
+  console.log(suitAndValue.length);
+  const suit = suitAndValue[0];
+  // console.log(suit.length);
+  const value = suitAndValue[1];
+  // console.log(value);
+  const card = document.querySelector(".card");
+  const newTopRow = buildTopOrBottomRow("top", value, suit);
+  const newMiddleRow = buildMiddleRow(suit);
+  const newBottomRow = buildTopOrBottomRow("bottom", value, suit);
+  card.appendChild(newTopRow);
+  card.appendChild(newMiddleRow);
+  card.appendChild(newBottomRow);
+  return card;
+  // }
+}
