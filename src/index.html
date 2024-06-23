@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sedonia's Random Card Generator</title>
-    <!-- <link rel="stylesheet" href="./style.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,24 +13,13 @@
   </head>
   <body style="background-color: green;">
     <div class="row top-line">
-      <button type="button" class="col-2" style="display: none;">
-        Next Card
+      <button type="button" id="newDeck" class="col-2" style="display: none;">
+        New Deck
       </button>
-      <div class="box">
-
-        <div class="card">
-          <!-- <div class="top-and-bottom">
-            <p><strong>J</strong></p>
-            <img class="corner-img" src="../src/assets/img/heart.svg" alt="hearts suit icon" class="img-size"/>
-          </div>
-          <div class="middle">
-            <img class="center-img" src="../src/assets/img/heart.svg" alt="hearts suit icon" class="img-size"/>
-          </div>
-          <div class="top-and-bottom rotated">
-            <p><strong>J</strong></p>
-            <img class="corner-img" src="../src/assets/img/heart.svg" alt="hearts suit icon" class="img-size"/></div>
-          </div> -->
-       
-      </div>
+      <button type="button" id="nextCard" class="col-2" style="display: none;">
+        Deal Card
+      </button>
+    </div>
+    <div class="box"></div>
   </body>
 </html>

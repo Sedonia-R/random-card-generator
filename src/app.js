@@ -4,19 +4,12 @@ import "./style.css";
 
 window.onload = function() {
   if (document.readyState === "complete") {
-    // const card = document.querySelector(".card");
-    // const newTopRow = buildTopOrBottomRow("top");
-    // const newMiddleRow = buildMiddleRow();
-    // const newBottomRow = buildTopOrBottomRow("bottom");
-    // card.appendChild(newTopRow);
-    // card.appendChild(newMiddleRow);
-    // card.appendChild(newBottomRow);
-
-    const button = document.querySelector("button");
-    button.addEventListener("click", refreshPage);
-    button.style.display = "block";
-
-    constructEachRandomCard(allCardOptions);
+    const newDeckButton = document.querySelector("#newDeck");
+    const newCardButton = document.querySelector("#nextCard");
+    newDeckButton.addEventListener("click", refreshPage);
+    newDeckButton.style.display = "block";
+    newCardButton.addEventListener("click", addNewCardToDeck);
+    newCardButton.style.display = "block";
   }
 };
 
@@ -57,9 +50,6 @@ function refreshPage() {
   window.location.reload();
 }
 
-// const value = cardValues[chooseRandomIndex(cardValues)];
-// const suit = suitTags[chooseRandomIndex(suitTags)];
-
 function buildTopOrBottomRow(sideOfCard, value, suit) {
   const topOrBottomRow = document.createElement("div");
 
@@ -95,25 +85,24 @@ function buildMiddleRow(suit) {
 const allCardOptions = [];
 for (let suitTag in suitTags) {
   for (let cardValue in cardValues) {
-    allCardOptions.push([`${suitTags[suitTag]}`, `${cardValues[cardValue]}`]);
+    let tagPlusValue = [];
+    tagPlusValue.push(`${suitTags[suitTag]}`);
+    tagPlusValue.push(`${cardValues[cardValue]}`);
+    allCardOptions.push(tagPlusValue);
   }
 }
 
 function selectSuitAndValueFromAllOptions(array) {
   const randomIndex = chooseRandomIndex(array);
-  console.log(array.splice(randomIndex, 2));
   return array.splice(randomIndex, 1);
 }
 
 function constructEachRandomCard(array) {
-  // for (let i = 0; i < array.length; i++) {
   const suitAndValue = selectSuitAndValueFromAllOptions(array);
-  console.log(suitAndValue.length);
-  const suit = suitAndValue[0];
-  // console.log(suit.length);
-  const value = suitAndValue[1];
-  // console.log(value);
-  const card = document.querySelector(".card");
+  const suit = suitAndValue[0][0];
+  const value = suitAndValue[0][1];
+  const card = document.createElement("div");
+  card.setAttribute("class", "card");
   const newTopRow = buildTopOrBottomRow("top", value, suit);
   const newMiddleRow = buildMiddleRow(suit);
   const newBottomRow = buildTopOrBottomRow("bottom", value, suit);
@@ -121,5 +110,10 @@ function constructEachRandomCard(array) {
   card.appendChild(newMiddleRow);
   card.appendChild(newBottomRow);
   return card;
-  // }
+}
+
+function addNewCardToDeck() {
+  const newCard = constructEachRandomCard(allCardOptions);
+  const boxDiv = document.querySelector(".box");
+  boxDiv.appendChild(newCard);
 }
