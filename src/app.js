@@ -10,6 +10,11 @@ window.onload = function() {
     newDeckButton.style.display = "block";
     newCardButton.addEventListener("click", addNewCardToDeck);
     newCardButton.style.display = "block";
+    const cardBackDiv = document.querySelector("#card-back");
+    const cardBack = document.createElement("img");
+    cardBack.setAttribute("src", "../src/assets/img/card_back2.jpg");
+    cardBack.setAttribute("class", "card-back-image");
+    cardBackDiv.append(cardBack);
   }
 };
 
@@ -113,7 +118,11 @@ function constructEachRandomCard(array) {
 }
 
 function addNewCardToDeck() {
-  const newCard = constructEachRandomCard(allCardOptions);
-  const boxDiv = document.querySelector(".box");
-  boxDiv.appendChild(newCard);
+  if (allCardOptions.length !== 0) {
+    const newCard = constructEachRandomCard(allCardOptions);
+    const boxDiv = document.querySelector(".box");
+    boxDiv.appendChild(newCard);
+  } else if (allCardOptions.length === 0) {
+    alert("That's all 52 cards! Press 'New Deck' to start again.");
+  }
 }
