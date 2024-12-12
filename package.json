@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --port 3000 --open",
     "build": "webpack --mode development --verbose --colors --display-error-details",
-    "deploy": "node deploy-to-github.js"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "eslint-loader": "^2.0.0",
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "gh-pages": "^6.2.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "parse-github-url": "^1.0.2",
