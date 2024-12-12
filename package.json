@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/4GeeksAcademy/vanillajs-hello/issues"
   },
-  "homepage": "https://sedonia-r.github.io/random-card-generator",
+  "homepage": "https://sedonia-r.github.io/random-card-generator/src",
   "dependencies": {
     "@popperjs/core": "^2.10.1",
     "bootstrap": "^5.1.1"
