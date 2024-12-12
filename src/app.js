@@ -1,7 +1,3 @@
-// /* eslint-disable */
-import "bootstrap";
-import "./style.css";
-
 window.onload = function() {
   if (document.readyState === "complete") {
     const newDeckButton = document.querySelector("#newDeck");
